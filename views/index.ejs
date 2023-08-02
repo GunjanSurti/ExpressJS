@@ -1,18 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <%- include('../partials/headers.ejs') %>
+
     <title><%= title %></title>
     <!-- <%= %> => display  -->
     <!-- <%  %> => execute  -->
   </head>
   <body>
     <!-- Moving between pages in Expres -->
-    <a href="/">Home</a>
-    <a href="/about">About</a>
+    <!-- <a href="/">Home</a>
+    <a href="/about">About</a> -->
     <!-- about.html bcz of static middleware we pass "public" -->
-    <h1>Hello Again Express...</h1>
-    <a href="/download">Download File</a>
+    <%- include('../partials/nav.ejs') %>
+    <div class="container">
+      <h1>Hello Again Express...</h1>
+      <a href="/download">Download File</a>
+    </div>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+      crossorigin="anonymous"
+    ></script>
   </body>
 </html>
