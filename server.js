@@ -4,19 +4,30 @@ const app = express();
 
 const PORT = process.env.PORT || 3000;
 const mainRouters = require("./routers/index");
+const productRouter = require("./routers/products");
 
 // this will set key:value in app container
 // set("key","value")
 app.set("view engine", "ejs");
 
-// static middleware
+// static middleware also global middleware       
 app.use(express.static("public")); // public has static files
 
-app.use(mainRouters );
+// adding perfix which will be shown in url 
+// app.use('/en',mainRouters);
+app.use(mainRouters,productRouter);
+// app.use(apiKeyMiddleWare); this is global middleware
+
 // PORT=5000 node server.js or server only, this will run on port 5000
 app.listen(PORT, () => {
   console.log(`Callback, Listening on port ${PORT}`);
 });
+
+// to download file
+// app.get("/download", (req, res) => {
+//   res.download(path.resolve(__dirname) + "/views/about.html");
+// });
+
 // app.get("/about",()=>{}) to go to about page
 // app.get("/", (req, res) => {
 //   // res.send("<h1>Hello from Express</h1> ")
@@ -39,12 +50,6 @@ app.listen(PORT, () => {
 //     title: "Server About",
 //   });
 // });
-
-// to download file
-app.get("/download", (req, res) => {
-  res.download(path.resolve(__dirname) + "/views/about.html");
-});
-
 //  app.get("view engine") => ejs
 // console.log(app.get("views")); => D:\Express\ExpressJS\views
 // thsi will search out html file in views folder by default
