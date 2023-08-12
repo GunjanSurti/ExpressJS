@@ -31,19 +31,19 @@ router.get("/download", (req, res) => {
 
 // using middle ware
 // to pass miltiple middleware do it in []
-router.get("/api/products", apiKeyMiddleWare, (req, res) => {
-  // to send json data
-  res.json([
-    {
-      id: "123",
-      name: "Chrome",
-    },
-    {
-      id: "456",
-      name: "FireFox",
-    },
-  ]);
-});
+// router.get("/api/products", apiKeyMiddleWare, (req, res) => {
+//   // to send json data
+//   res.json([
+//     {
+//       id: "123",
+//       name: "Chrome",
+//     },
+//     {
+//       id: "456",
+//       name: "FireFox",
+//     },
+//   ]);
+// });
 
 module.exports = router;
 

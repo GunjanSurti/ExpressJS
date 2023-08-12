@@ -1,6 +1,6 @@
 function apiKey(req, res, next) {
   const api_key = "123456";
-  console.log(req.query.api);
+  console.log(req.query.api); // this will log 'api' which is entered in url
   const userApiKey = req.query.api;
 
   if (userApiKey && userApiKey === api_key) {
