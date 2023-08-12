@@ -1,7 +1,7 @@
 const router = require("express").Router();
 const path = require("path");
 
-const apiKeyMiddleWare = require("../middleware/apiKey");
+// const apiKeyMiddleWare = require("../middleware/apiKey");
 
 // this is router level middleware
 // it will apply all routers

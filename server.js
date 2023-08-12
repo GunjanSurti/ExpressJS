@@ -10,12 +10,13 @@ const productRouter = require("./routers/products");
 // set("key","value")
 app.set("view engine", "ejs");
 
-// static middleware also global middleware       
+// static middleware also global middleware
 app.use(express.static("public")); // public has static files
+app.use(express.json());
 
-// adding perfix which will be shown in url 
+// adding perfix which will be shown in url
 // app.use('/en',mainRouters);
-app.use(mainRouters,productRouter);
+app.use(mainRouters, productRouter);
 // app.use(apiKeyMiddleWare); this is global middleware
 
 // PORT=5000 node server.js or server only, this will run on port 5000

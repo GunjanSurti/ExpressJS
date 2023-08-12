@@ -22,12 +22,30 @@ const App = () => {
     if (!form.name || !form.price) {
       return;
     }
+    fetch("/api/products", {
+      method: "POST",
+      headers: {
+        "Content-Type": "appilcation/json",
+      },
+      body: JSON.stringify(form),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+      });
   }
   function updateForm(event, field) {
-    setForm({
-      ...form,
-      [field]: event.target.value,
-    });
+    if (field === "name") {
+      setForm({
+        ...form,
+        name: event.target.value,
+      });
+    } else if (field === "price") {
+      setForm({
+        ...form,
+        price: event.target.value,
+      });
+    }
   }
   return (
     <>
@@ -37,11 +55,10 @@ const App = () => {
           <form onClick={handleSubmit}>
             <input
               type="text"
-              placeholder="Product Name..."
-              className="form-control mt-3"
               value={form.name}
               onChange={() => updateForm(event, "name")}
-              required
+              placeholder="Product Name..."
+              className="form-control mt-3"
             ></input>
             <input
               type="text"
@@ -49,7 +66,6 @@ const App = () => {
               onChange={() => updateForm(event, "price")}
               placeholder="Product Price..."
               className="form-control mt-3"
-              required
             ></input>
             <button type="submit" className="btn btn-primary mt-3">
               Submit
